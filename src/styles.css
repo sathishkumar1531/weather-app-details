@@ -29,6 +29,15 @@
 
 @media only screen and (min-width: 1200px) {
     .panel-default {
+        height: 560px !important;
+    }
+    table {
+        height: 470px;
+    }
+}
+
+@media only screen and (min-width: 1260px) {
+    .panel-default {
         height: 550px !important;
     }
     table {
