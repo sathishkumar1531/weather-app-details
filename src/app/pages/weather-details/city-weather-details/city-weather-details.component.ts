@@ -57,8 +57,8 @@ export class CityWeatherDetailsComponent implements OnInit {
                 cloud: res.body.weather[0].description,
                 main: res.body.weather[0].main,
                 backgroundImg: res.body.weather[0].main.toLowerCase(),
-                sunrise: res.body.sys.sunrise,
-                sunset: res.body.sys.sunset,
+                sunrise: new Date(res.body.sys.sunrise * 1000),
+                sunset: new Date(res.body.sys.sunset * 1000),
             };
             this.weatherData[formId].showWeatherResult = true;
             this.weatherData[formId].intervalData = interval(300000),
@@ -86,8 +86,8 @@ export class CityWeatherDetailsComponent implements OnInit {
                 cloud: res.body.weather[0].description,
                 main: res.body.weather[0].main,
                 backgroundImg: res.body.weather[0].main.toLowerCase(),
-                sunrise: res.body.sys.sunrise,
-                sunset: res.body.sys.sunset,
+                sunrise: new Date(res.body.sys.sunrise * 1000),
+                sunset: new Date(res.body.sys.sunset * 1000),
             }
             this.weatherData[formId].errorMessage = '';
             this.weatherData[formId].showWeatherResult = true;
