@@ -1,0 +1,72 @@
+<div class="container-fluid weather-container">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor = "let item of weatherData; index as i">
+            <div class="panel panel-default">
+                <div class="panel-body"> 
+                    <button type="button" class="btn btn-primary" *ngIf = "!item.showWeatherForm" (click) = 'showInputBox(item.formId)'>Click here to enter city name</button>
+                    <form [id] = "item.formId" (submit) = "searchCityWeather(item.formId)" *ngIf = 'item.showWeatherForm && !item.showWeatherResult' >
+                        <div class="form-group">
+                            <label for="usr">City Name:</label>
+                            <input type="text" class="form-control" name="cityName" autocomplete="off" [(ngModel)] = "item.cityName">
+                        </div>
+                        <div *ngIf = "item.errorMessage">
+                            <span>{{item.errorMessage}}</span>
+                        </div>
+                        <div class="row form-buttons">
+                            <button type="submit" [disabled] = '!item.cityName' type class=" btn btn-success">Submit</button>
+                            <button type="button" [disabled] = '!item.cityName' (click) = "item.cityName = ''" type class=" btn btn-success">Clear</button>
+                            <button type="button" (click) = "item.showWeatherForm = false; resetWeatherPanel(item.formId)" type class=" btn btn-success">Reset</button>
+                        </div>
+                    </form>
+                    <table class="table table-bordered" *ngIf = 'item.showWeatherResult' [ngClass] = "item.details.backgroundImg">
+                        <tbody>
+                            <tr>
+                                <td>City</td>
+                                <td>{{item.details.city}}</td>
+                            </tr>
+                            <tr>
+                                <td>Wind Speed</td>
+                                <td>{{item.details.windSpeed}}</td>
+                            </tr>
+                            <tr>
+                                <td>Temperature</td>
+                                <td>{{item.details.temp}}</td>
+                            </tr>
+                            <tr>
+                                <td>Pressure</td>
+                                <td>{{item.details.pressure}}</td>
+                            </tr>
+                            <tr>
+                                <td> Humidity </td>
+                                <td>{{item.details.humidity}}</td>
+                            </tr>
+                            <tr>
+                                <td>Minimum Temperature</td>
+                                <td>{{item.details.minTemp}}</td>
+                            </tr>
+                            <tr>
+                                <td>Maximum Temperature</td>
+                                <td>{{item.details.maxTemp}}</td>
+                            </tr>
+                            <tr>
+                                <td>Cloud Type</td>
+                                <td>{{item.details.cloud}}</td>
+                            </tr>
+                            <tr>
+                                <td>Sunrise</td>
+                                <td>{{item.details.sunrise | date: 'yyyy-MM-dd'}}</td>
+                            </tr>
+                            <tr>
+                                <td> Sunset </td>
+                                <td>{{item.details.sunset | date: 'yyyy-MM-dd'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row form-buttons" *ngIf = 'item.showWeatherResult'>
+                        <button type="button" (click) = "item.showWeatherResult = false; onDestroyingIntervalWhileEditCity(item.formId)" class=" btn btn-success">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

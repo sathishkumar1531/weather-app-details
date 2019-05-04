@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+
+@media only screen and (max-width: 767px) {
+    .panel-default {
+        height: 500px !important;
+    }
+    table {
+        height: 400px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .panel-default {
+        height: 575px !important;
+    }
+    table {
+        height: 490px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .panel-default {
+        height: 550px !important;
+    }
+    table {
+        height: 460px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .panel-default {
+        height: 550px !important;
+    }
+    table {
+        height: 460px;
+    }
+}
+
+.weather-container {
+    margin-top: 30px;
+}
+
+.form-buttons {
+    text-align: center;
+    width: 100%;
+}
+
+.form-buttons button {
+    margin-left: 10px;
+}
+
+.clouds {
+    background-image: url("assets/img/clouds.jpeg");
+}
+
+.clear {
+    background-size: cover;
+    background-image: url("assets/img/clear.jpeg");
+    background-repeat: no-repeat;
+}
+
+.haze {
+    background-image: url("assets/img/haze.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.rain {
+    background-image: url("assets/img/rain.jpg");
+}
+
+.thunderstorm {
+    background-image: url("assets/img/thunderstorm.jpg");
+}
+
+  
